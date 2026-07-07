@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lemon Tracker | Twoje Seansy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="header-content">
+    <h1>LEMON<span>TRACKER</span></h1>
+    <p>seanse</p>
+  </div>
+</header>
+
+<main>
+  <div id="notification-box" class="notification hidden"></div>
+
+  <div class="container">
+    <section class="form-section">
+      <div class="section-header">
+        <h2 id="form-title">Dodaj pozycję</h2>
+        <span class="badge">Nowość</span>
+      </div>
+      <form id="movie-form">
+        <input type="hidden" id="movie-id">
+
+        <div class="form-group">
+          <label for="title">Tytuł filmu / serialu</label>
+          <input type="text" id="title" placeholder="Wpisz tytuł..." required>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Krótki opis</label>
+          <textarea id="description" rows="2" placeholder="Szybka notatka (np. polecił Tomek)"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="genre">Gatunek</label>
+            <select id="genre" required>
+              <option value="" disabled selected>Wybierz</option>
+              <option value="Akcja">Akcja</option>
+              <option value="Dramat">Dramat</option>
+              <option value="Komedia">Komedia</option>
+              <option value="Sci-Fi">Sci-Fi</option>
+              <option value="Horror">Horror</option>
+              <option value="Thriller">Thriller</option>
+              <option value="Dokument">Dokument</option>
+            </select>
+          </div>
+
+          <div class="form-group" id="rating-group">
+            <label for="rating">Ocena (1-100)</label>
+            <input type="number" id="rating" min="1" max="100" placeholder="np. 85" required>
+          </div>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label class="custom-checkbox">
+            <input type="checkbox" id="watched">
+            <span class="checkmark"></span>
+            Obejrzane (główna siatka)
+          </label>
+        </div>
+
+        <div class="form-group checkbox-group" style="margin-top: 0;">
+          <label class="custom-checkbox">
+            <input type="checkbox" id="is-watchlist">
+            <span class="checkmark"></span>
+            Dodaj do Watchlisty (na później)
+          </label>
+        </div>
+
+        <div class="action-buttons">
+          <button type="submit" id="submit-btn" class="btn-primary">Zapisz pozycję</button>
+          <button type="button" id="cancel-btn" class="btn-secondary hidden">Anuluj</button>
+        </div>
+      </form>
+    </section>
+
+    <div class="lists-wrapper">
+
+      <section id="watchlist-section" class="watchlist-section hidden">
+        <h2>Do obejrzenia później</h2>
+        <div id="watchlist-container" class="watchlist-container">
+        </div>
+      </section>
+
+      <section class="list-section">
+        <h2>Twoje Zestawienie</h2>
+        <div id="movie-list" class="movie-grid">
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div id="review-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button id="close-modal" class="btn-close">&times;</button>
+      <div class="modal-layout">
+        <div class="modal-poster-container">
+          <img id="modal-poster" src="" alt="Plakat" class="movie-poster">
+        </div>
+        <div class="modal-body">
+          <h2 id="modal-title" style="margin-bottom: 5px;">Tytuł</h2>
+          <p id="modal-genre" class="movie-genre" style="margin-bottom: 20px;">Gatunek</p>
+
+          <div class="form-group">
+            <label for="modal-review">Twoja długa opinia / recenzja</label>
+            <textarea id="modal-review" rows="8" placeholder="Co myślisz o tym tytule? Podziel się przemyśleniami..."></textarea>
+          </div>
+
+          <input type="hidden" id="modal-movie-id">
+          <button id="save-review-btn" class="btn-primary">Zapisz opinię</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="info-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button id="close-info-modal" class="btn-close">&times;</button>
+      <div class="modal-layout">
+        <div class="modal-poster-container">
+          <img id="info-modal-poster" src="" alt="Plakat" class="movie-poster">
+        </div>
+        <div class="modal-body">
+          <h2 id="info-modal-title" style="margin-bottom: 5px;">Tytuł</h2>
+          <p id="info-modal-genre" class="movie-genre">Gatunek</p>
+
+          <div class="info-details" style="margin-bottom: 24px;">
+            <label>Krótki opis:</label>
+            <p id="info-modal-desc" style="color: var(--text-main); font-size: 0.95rem; margin-bottom: 15px;"></p>
+
+            <label>Oczekiwania:</label>
+            <div id="info-modal-rating" class="lemonmeter"></div>
+          </div>
+
+          <input type="hidden" id="info-modal-movie-id">
+          <div class="action-buttons">
+            <button id="move-to-main-btn" class="btn-primary">Przenieś na główną siatkę</button>
+            <button id="delete-watchlist-btn" class="btn-secondary" style="border-color: var(--danger); color: var(--danger);">Usuń</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
