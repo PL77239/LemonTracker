@@ -35,4 +35,4 @@ Aplikacja wdrożona na produkcję jest dostępna publicznie pod adresem:
 
 ---
 **Autor:** Jan Błaż
-**Temat projektu:** Aplikacja internetowa do śledzenia filmów i seriali
+**Temat projektu:** Aplikacja internetowa do śledzenia filmów i seriali - LemonTracker
