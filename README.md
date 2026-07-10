@@ -1,6 +1,6 @@
 # 🍋 LemonTracker
 
-Aplikacja webowa typu CRUD do zarządzania osobistą biblioteką filmów i seriali, stworzona w ramach projektu zaliczeniowego ma ocene 3.5.
+Aplikacja webowa typu CRUD do zarządzania osobistą biblioteką filmów i seriali, stworzona w ramach projektu zaliczeniowego na ocene 3.5.
 
 ##  Zastosowane technologie
 * **Frontend:** HTML5, CSS3 (Flexbox, CSS Grid, CSS Variables, Glassmorphism), Vanilla JavaScript (ES6+).
@@ -32,6 +32,12 @@ Ponieważ aplikacja opiera się na technologiach statycznych (HTML/CSS/JS) reali
 ### Wersja Live (zalecana)
 Aplikacja wdrożona na produkcję jest dostępna publicznie pod adresem:
  `(https://lemontracker.netlify.app)`
+
+### Uruchomienie lokalnie
+Projekt nie wymaga instalacji środowisk uruchomieniowych (jak Node.js) ani paczek npm.
+1. Sklonuj repozytorium lub pobierz pliki projektu (`index.html`, `style.css`, `script.js`).
+2. W pliku `script.js` podmień zmienną `TMDB_API_KEY` na swój własny klucz API wygenerowany na platformie TMDB (okolice 2. linijki kodu).
+3. Otwórz plik `index.html` w przeglądarce. Najlepiej zrobić to przez wbudowany serwer IDE (np. IntelliJ IDEA) lub rozszerzenie **Live Server** w VS Code, aby uniknąć ewentualnych restrykcji polityki CORS przy protokole `file://`.
 
 ---
 **Autor:** Jan Błaż
